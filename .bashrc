@@ -77,9 +77,9 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -alF --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -CF --color=auto'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -97,7 +97,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-source ~/.bash_profile
+#source ~/.bash_profile
 
 ####################################
 # Host-specific configuration
