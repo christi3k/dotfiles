@@ -69,7 +69,8 @@ function prompt {
   case $HOSTNAME in
     christie-desktop ) host_section="$PURPLE\h";;
     ck-shopigniter ) host_section="$PURPLE\h";;
-    #green.paydici.com ) host_section="$GREEN$INVERSE\h$NORMAL";;
+    #si-ci ) host_section="$BROWN\h";;
+    si-ci ) host_section="$GREEN$INVERSE\h$NORMAL";;
     #blue.paydici.com ) host_section="$BLUE$INVERSE\h$NORMAL";;
     * ) host_section="$INVERSE\h$NORMAL"
   esac
