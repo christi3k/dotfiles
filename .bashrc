@@ -3,7 +3,7 @@
 # for examples
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+if [[ -n "$PS1" ]]; then
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -106,3 +106,7 @@ fi
 if [ -f ~/.dotfiles/hosts/$HOSTNAME/bashrc ]; then
   source ~/.dotfiles/hosts/$HOSTNAME/bashrc
 fi
+
+fi
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.

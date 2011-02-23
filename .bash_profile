@@ -63,12 +63,12 @@ function return_value_indicator {
   if [ $? == 0 ]; then echo ":)"; else echo ":("; fi
 }
 
-#function rvm_prompt_reidab {
-  #if [ -f ~/.rvm/bin/rvm-prompt ]; then
-    #rvm_result=$(~/.rvm/bin/rvm-prompt)
-    #if [ ${rvm_result} != 'system' ]; then echo " ∴ ${rvm_result}"; fi
-  #fi
-#}
+function rvm_prompt_ck {
+  if [ -f ~/.rvm/bin/rvm-prompt ]; then
+	rvm_result=$(~/.rvm/bin/rvm-prompt)
+	if [ ${rvm_result} != "system" ]; then echo " ∴ ${rvm_result}"; fi
+  fi
+}
 
 function prompt {
   case $HOSTNAME in
@@ -80,11 +80,8 @@ function prompt {
     * ) host_section="$INVERSE\h$NORMAL"
   esac
   #PS1="$WHITE\n[$host_section $WHITE\$(return_value_indicator) $BLUE\w$RED\$(parse_git_branch)$YELLOW$WHITE] \n$GREEN\u$WHITE\$ $WHITE
-  PS1="$WHITE\n[$host_section $WHITE\$(return_value_indicator) $BLUE\w$RED\$(__git_ps1)$YELLOW$WHITE] \n$GREEN\u$WHITE\$ $WHITE"
+  PS1="$WHITE\n[$host_section $WHITE\$(return_value_indicator) $BLUE\w$RED\$(__git_ps1)$YELLOW\$(rvm_prompt_ck)$WHITE] \n$GREEN\u$WHITE\$ $WHITE"
 }
 
 # set the prompt
 prompt
-
-#export PROMPT_COMMAND='PS1="\[\033[0;33m\][\!]\`if [[ \$? = "0" ]]; then echo "\\[\\033[32m\\]"; else echo "\\[\\033[31m\\]"; fi\`[\u. \h: \`if [[ `pwd|wc -c|tr -d " "` > 18 ]]; then echo "\\W"; else echo "\\w"; fi\`]\$\[\033[0m\] "; echo -ne "\033]0;`hostname -s`: `pwd`\007"'
-
