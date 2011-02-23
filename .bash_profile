@@ -47,6 +47,11 @@ NO_COLOUR="\[\033[0m\]"
 INVERSE="\e[7m"
 NORMAL="\e[m"
 
+#if [ -f /usr/share/stgit/completion/stgit-completion.bash ]; then
+	#source /usr/share/stgit/completion/stgit-completion.bash
+#fi
+GIT_PS1_SHOWDIRTYSTATE=true
+
 function parse_git_branch {
   if [ $(which git-symbolic-ref) ]; then
     ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
@@ -74,7 +79,8 @@ function prompt {
     #blue.paydici.com ) host_section="$BLUE$INVERSE\h$NORMAL";;
     * ) host_section="$INVERSE\h$NORMAL"
   esac
-  PS1="$WHITE\n[$host_section $WHITE\$(return_value_indicator) $BLUE\w$RED\$(parse_git_branch)$YELLOW$WHITE] \n$GREEN\u$WHITE\$ $WHITE"
+  #PS1="$WHITE\n[$host_section $WHITE\$(return_value_indicator) $BLUE\w$RED\$(parse_git_branch)$YELLOW$WHITE] \n$GREEN\u$WHITE\$ $WHITE
+  PS1="$WHITE\n[$host_section $WHITE\$(return_value_indicator) $BLUE\w$RED\$(__git_ps1)$YELLOW$WHITE] \n$GREEN\u$WHITE\$ $WHITE"
 }
 
 # set the prompt
