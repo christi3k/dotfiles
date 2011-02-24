@@ -50,6 +50,7 @@ NORMAL="\e[m"
 #if [ -f /usr/share/stgit/completion/stgit-completion.bash ]; then
 	#source /usr/share/stgit/completion/stgit-completion.bash
 #fi
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 GIT_PS1_SHOWDIRTYSTATE=true
 
 function parse_git_branch {
