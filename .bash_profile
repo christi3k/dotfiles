@@ -75,6 +75,7 @@ function prompt {
   case $HOSTNAME in
     christie-desktop ) host_section="$PURPLE\h";;
     ck-shopigniter ) host_section="$PURPLE\h";;
+    christie-netbook) host_section="$BLUE\h";;
     #si-ci ) host_section="$BROWN\h";;
     si-ci ) host_section="$GREEN$INVERSE\h$NORMAL";;
     #blue.paydici.com ) host_section="$BLUE$INVERSE\h$NORMAL";;
