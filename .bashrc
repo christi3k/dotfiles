@@ -81,6 +81,9 @@ alias ll='ls -alF --color=auto'
 alias la='ls -A --color=auto'
 alias l='ls -CF --color=auto'
 
+# misc aliases (todo move to aprop aliases file)
+alias pwgen='pwgen -1 9 10'
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -105,6 +108,14 @@ fi
 
 if [ -f ~/.dotfiles/hosts/$HOSTNAME/bashrc ]; then
   source ~/.dotfiles/hosts/$HOSTNAME/bashrc
+fi
+
+####################################
+# local configuration (not in Git)
+####################################
+
+if [ -f ~/.dotfiles/.bash-local ]; then
+  source ~/.dotfiles/.bash-local
 fi
 
 fi

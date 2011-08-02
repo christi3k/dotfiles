@@ -23,6 +23,7 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
     PATH="/usr/lib/git-core/:$PATH"
+    PATH="/usr/local/bin/:$PATH"
 
 # set up named colors
 BLACK="\[\033[0;30m\]"

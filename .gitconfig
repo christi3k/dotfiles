@@ -7,5 +7,11 @@
 	branch = auto
 [github]
 	user = christiekoehler
-	token = e97450ff87ef607cc9374875d586e934
-
+    token = !sh -c 'echo $GITHUB_TOKEN'
+[alias]
+    hist = log --all --graph --oneline --decorate
+    co = checkout
+[giggle]
+	main-window-maximized = false
+	main-window-geometry = 1060x791+823+25
+	history-view-vpane-position = 590
