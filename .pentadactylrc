@@ -1,0 +1,30 @@
+"1.0b7.2 "(created 2011/08/05 11:03:59)"
+
+" Load Plugins
+loadplugins '\.(js|penta)$'
+
+" Misc Options
+set guioptions=bCrsBmT
+set mapleader=","
+set titlestring=Mozilla\ Firefox
+
+" Edit rc file
+cmap <Leader>r :!gvim $HOME/.pentadactylrc"
+
+" Google Misc 
+com docs open https://docs.google.com/
+com contacts open https://www.google.com/contacts
+com m open https://www.gmail.com
+
+" Mozilla Misc
+com buzilla open https://bugzilla.mozilla.org
+com zimbra open https://mail.mozilla.com/zimbra
+com mozwiki open https://wiki.mozilla.org
+com mozether open https://etherpad.mozilla.org
+
+" Other Apps
+com campfire open https://stumptownsyndicate.campfirenow.com
+com osbether open http://etherpad.opensourcebridge.org
+
+group user
+" vim: set ft=pentadactyl:
