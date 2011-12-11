@@ -93,3 +93,4 @@ function prompt {
 prompt
 
 export PYTHONPATH=/home/christie/Work/Django:$PYTHONPATH
+export PYTHONPATH=/home/christie/Projects/Django:$PYTHONPATH
