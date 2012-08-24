@@ -82,7 +82,7 @@ alias la='ls -A --color=auto'
 alias l='ls -CF --color=auto'
 
 # misc aliases (todo move to aprop aliases file)
-alias pwgen='pwgen -1 9 10'
+alias pwgen='pwgen -y -1 12 10'
 
 alias apg='apg -M SNCl -a 0 -n 12 -m 12 -x 12 -E \(\)~-/_'
 
@@ -95,6 +95,7 @@ alias muttzilla='mutt -F ~/.muttzillarc'
 # todo app 
 export TODOTXT_DEFAULT_ACTION=ls
 alias t='todo.sh -d /home/christie/.config/todo/todo.cfg'
+alias tmoz='todo.sh -d /home/christie/.config/todo/todo-moz.cfg'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like

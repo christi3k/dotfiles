@@ -4,7 +4,8 @@
 loadplugins '\.(js|penta)$'
 
 " Misc Options
-set guioptions=bCrsBmT
+" set guioptions=bCrsBmT
+set guioptions=bCrsBT
 set mapleader=","
 set titlestring=Mozilla\ Firefox
 
