@@ -74,15 +74,11 @@ function rvm_prompt_ck {
 
 function prompt {
   case $HOSTNAME in
-    christie-desktop ) host_section="$PURPLE\h";;
-    ck-shopigniter ) host_section="$PURPLE\h";;
-    christie-netbook) host_section="$BLUE\h";;
     starbuck) host_section="$BLUE\h";;
     ripley) host_section="$LIGHT_PURPLE\h";;
-    scully) host_section="$GREEN\h";;
-    #si-ci ) host_section="$BROWN\h";;
-    si-ci ) host_section="$GREEN$INVERSE\h$NORMAL";;
-    #blue.paydici.com ) host_section="$BLUE$INVERSE\h$NORMAL";;
+    scully) host_section="$YELLOW\h";;
+    buffy ) host_section="$GREEN$INVERSE\h$NORMAL";;
+    xander ) host_section="$BLUE$INVERSE\h$NORMAL";;
     * ) host_section="$INVERSE\h$NORMAL"
   esac
   #PS1="$WHITE\n[$host_section $WHITE\$(return_value_indicator) $BLUE\w$RED\$(parse_git_branch)$YELLOW$WHITE] \n$GREEN\u$WHITE\$ $WHITE
