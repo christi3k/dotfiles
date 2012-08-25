@@ -78,7 +78,7 @@ function prompt {
     ck-shopigniter ) host_section="$PURPLE\h";;
     christie-netbook) host_section="$BLUE\h";;
     starbuck) host_section="$BLUE\h";;
-    ripley) host_section="$BLUE\h";;
+    ripley) host_section="$LIGHT_PURPLE\h";;
     scully) host_section="$GREEN\h";;
     #si-ci ) host_section="$BROWN\h";;
     si-ci ) host_section="$GREEN$INVERSE\h$NORMAL";;
