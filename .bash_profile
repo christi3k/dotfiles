@@ -92,6 +92,15 @@ function prompt {
 # set the prompt
 prompt
 
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
 export PYTHONPATH=/home/christie/Work/Django:$PYTHONPATH
 export PYTHONPATH=/home/christie/Projects/Django:$PYTHONPATH
 export PYTHONPATH=/home/christie/Work/PyCon2012/DjangoIntro:$PYTHONPATH
