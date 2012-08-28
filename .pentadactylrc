@@ -1,10 +1,10 @@
-"1.0b7.2 "(created 2011/08/05 11:03:59)"
-
 " Load Plugins
 loadplugins '\.(js|penta)$'
 
 " Misc Options
 " set guioptions=bCrsBmT
+" (b)ottom scrollbar, (C) always show command outside of status, (r) right scroll, (s) status
+" (B) bookmark bar, (T) Toolbar
 set guioptions=bCrsBT
 set mapleader=","
 set titlestring=Mozilla\ Firefox
@@ -29,3 +29,16 @@ com osbether open http://etherpad.opensourcebridge.org
 
 group user
 " vim: set ft=pentadactyl:
+
+" toggle nav toolbar
+nmap <C-l> :toolbartoggle Navigation Toolbar<CR>
+
+" toggle bookmarks toolbar
+nmap <C-S-b> :toolbartoggle Bookmarks Toolbar<CR>
+
+" setup pinboard shortcut
+nmap <C-S-d> :pinboard<CR>
+
+" set command for pinboard bookmark
+
+command! pinboard :open javascript:(function(){q=location.href;if(document.getSelection){d=document.getSelection();}else{d='';};p=document.title;void(open('https://pinboard.in/add?showtags=yes&url='+encodeURIComponent(q)+'&description='+encodeURIComponent(d)+'&title='+encodeURIComponent(p),'Pinboard',%20'toolbar=no,width=700,height=600'))})()
