@@ -76,10 +76,16 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -alF --color=auto'
-alias la='ls -A --color=auto'
-alias l='ls -CF --color=auto'
+if [ -x /usr/local/bin//ls++ ]; then
+    # if ls++ is installed, us it
+    alias ls='ls++ -A --potsf'
+else
+    # use original ls
+    alias ll='ls -alF --color=auto'
+    alias la='ls -A --color=auto'
+    alias l='ls -CF --color=auto'
+fi
+
 
 # misc aliases (todo move to aprop aliases file)
 alias pwgen='pwgen -y -1 12 10'
