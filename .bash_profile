@@ -76,7 +76,7 @@ function prompt {
   case $HOSTNAME in
     starbuck) host_section="$BLUE\h";;
     ripley) host_section="$LIGHT_PURPLE\h";;
-    scully) host_section="$YELLOW\h";;
+    scully) host_section="$LIGHT_BLUE\h";;
     buffy ) host_section="$GREEN$INVERSE\h$NORMAL";;
     xander ) host_section="$BLUE$INVERSE\h$NORMAL";;
     * ) host_section="$INVERSE\h$NORMAL"
