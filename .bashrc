@@ -78,7 +78,9 @@ fi
 
 if [ -x /usr/local/bin//ls++ ]; then
     # if ls++ is installed, us it
-    alias ls='ls++ -A --potsf'
+    alias ls='ls++'
+    alias la='ls++ -A --potsf'
+    alias ll='ls++ --potsf'
 else
     # use original ls
     alias ll='ls -alF --color=auto'
