@@ -105,6 +105,9 @@ export TODOTXT_DEFAULT_ACTION=ls
 alias t='todo.sh -d /home/christie/.config/todo/todo.cfg'
 alias tmoz='todo.sh -d /home/christie/.config/todo/todo-moz.cfg'
 
+# journal aliases
+
+alias food='journal -j food'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
