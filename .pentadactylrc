@@ -1,13 +1,14 @@
 " Load Plugins
 loadplugins '\.(js|penta)$'
 
+map , <Leader>
+
 " Misc Options
 " set guioptions=bCrsBmT
 " (b)ottom scrollbar, (C) always show command outside of status, (r) right scroll, (s) status
 " (B) bookmark bar, (T) Toolbar
 set guioptions=bCrsBT
-set mapleader=","
-set titlestring=Mozilla\ Firefox
+" set titlestring=Mozilla\ Firefox
 
 " Edit rc file
 cmap <Leader>r :!gvim $HOME/.pentadactylrc"
