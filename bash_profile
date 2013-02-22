@@ -74,7 +74,7 @@ function rvm_prompt_ck {
 
 function prompt {
   case $HOSTNAME in
-    starbuck) host_section="$BLUE\h";;
+    starbuck) host_section="$YELLOW\h";;
     ripley) host_section="$LIGHT_PURPLE\h";;
     scully) host_section="$LIGHT_BLUE\h";;
     buffy ) host_section="$GREEN$INVERSE\h$NORMAL";;
@@ -82,7 +82,7 @@ function prompt {
     * ) host_section="$INVERSE\h$NORMAL"
   esac
   #PS1="$WHITE\n[$host_section $WHITE\$(return_value_indicator) $BLUE\w$RED\$(parse_git_branch)$YELLOW$WHITE] \n$GREEN\u$WHITE\$ $WHITE
-  PS1="$WHITE\n[$host_section $WHITE\$(return_value_indicator) $BLUE\w$RED\$(__git_ps1)$YELLOW\$(rvm_prompt_ck)$WHITE] \n$GREEN\u$WHITE\$ $WHITE"
+  PS1="$WHITE\n[$host_section $WHITE\$(return_value_indicator) $GRAY\w$RED\$(__git_ps1)$YELLOW\$(rvm_prompt_ck)$WHITE] \n$GREEN\u$WHITE\$ $WHITE"
 }
 
 # set the prompt
