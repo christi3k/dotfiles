@@ -22,6 +22,11 @@ source ~/.bashrc
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+# include rbevn path if it exists
+if [ -d "$HOME/.rbenv/bin" ] ; then
+    PATH="$HOME/.rbenv/bin:$PATH"
+fi
     PATH="/usr/lib/git-core/:$PATH"
     PATH="/usr/local/bin/:$PATH"
 
@@ -48,6 +53,14 @@ NO_COLOUR="\[\033[0m\]"
 INVERSE="\e[7m"
 NORMAL="\e[m"
 
+# fun with unicode
+MERCURY=$'\u263f'
+THEREFORE=$'\u2234'
+BLACKSTAR=$'\u2605'
+RARROW=$'\u2192'
+SAD=$'\u2639'
+HAPPY=$'\u263a'
+
 #if [ -f /usr/share/stgit/completion/stgit-completion.bash ]; then
 	#source /usr/share/stgit/completion/stgit-completion.bash
 #fi
@@ -62,7 +75,8 @@ function parse_git_branch {
 }
 
 function return_value_indicator {
-  if [ $? == 0 ]; then echo ":)"; else echo ":("; fi
+  #if [ $? == 0 ]; then echo  "$HAPPY"; else echo "$SAD"; fi
+  if [ $? == 0 ]; then echo  ";)"; else echo ";("; fi
 }
 
 function rvm_prompt_ck {
@@ -72,9 +86,18 @@ function rvm_prompt_ck {
   fi
 }
 
+
+function rbenv_prompt_ck {
+  if [ -f $(which rbenv) ]; then
+	rbenv_result=$(rbenv version-name)
+	#if [ ${rbenv_result} != "system" ]; then echo " ∴ ${rbenv_result}"; fi
+	if [ ${rbenv_result} != "system" ]; then echo " $BLACKSTAR${rbenv_result}"; fi
+  fi
+}
+
 function prompt {
   case $HOSTNAME in
-    starbuck) host_section="$BLUE\h";;
+    starbuck) host_section="$PURPLE\h";;
     ripley) host_section="$LIGHT_PURPLE\h";;
     scully) host_section="$LIGHT_BLUE\h";;
     buffy ) host_section="$GREEN$INVERSE\h$NORMAL";;
@@ -82,7 +105,7 @@ function prompt {
     * ) host_section="$INVERSE\h$NORMAL"
   esac
   #PS1="$WHITE\n[$host_section $WHITE\$(return_value_indicator) $BLUE\w$RED\$(parse_git_branch)$YELLOW$WHITE] \n$GREEN\u$WHITE\$ $WHITE
-  PS1="$WHITE\n[$host_section $WHITE\$(return_value_indicator) $BLUE\w$RED\$(__git_ps1)$YELLOW\$(rvm_prompt_ck)$WHITE] \n$GREEN\u$WHITE\$ $WHITE"
+  PS1="\n[$GRAY\!$WHITE][$host_section $WHITE\$(return_value_indicator) $GRAY\w$RED\$(__git_ps1)$BROWN\$(rbenv_prompt_ck)$WHITE] \n$GREEN\u$WHITE\$ $WHITE"
 }
 
 # set the prompt
@@ -102,3 +125,9 @@ export PYTHONPATH=/home/christie/Projects/Django:$PYTHONPATH
 export PYTHONPATH=/home/christie/Work/PyCon2012/DjangoIntro:$PYTHONPATH
 
 export TERM="xterm-256color"
+
+# Load rbenv automatically by adding
+# the following to ~/.bash_profile:
+
+eval "$(rbenv init -)"
+
