@@ -88,7 +88,7 @@ function rvm_prompt_ck {
 
 
 function rbenv_prompt_ck {
-  if [ -f $(which rbenv) ]; then
+  if [ -d "$HOME/.rbenv/bin" ] ; then
 	rbenv_result=$(rbenv version-name)
 	#if [ ${rbenv_result} != "system" ]; then echo " ∴ ${rbenv_result}"; fi
 	if [ ${rbenv_result} != "system" ]; then echo " $BLACKSTAR${rbenv_result}"; fi
@@ -129,5 +129,7 @@ export TERM="xterm-256color"
 # Load rbenv automatically by adding
 # the following to ~/.bash_profile:
 
-eval "$(rbenv init -)"
+if [ -d "$HOME/.rbenv/bin" ] ; then
+    eval "$(rbenv init -)"
+fi
 
