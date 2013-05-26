@@ -42,6 +42,11 @@ autocmd LocationChange google.com :normal! <C-z>
 autocmd LocationChange etherpad.mozilla.org :normal! <C-z>
 autocmd LocationChange etherpad.samadhilabs.org :normal! <C-z>
 
+" passthrough on all google sites
+autocmd LocationChange google.com :normal! <C-z>
+autocmd LocationChange etherpad.mozilla.org :normal! <C-z>
+autocmd LocationChange etherpad.samadhilabs.org :normal! <C-z>
+
 " setup pinboard shortcut
 nmap <C-S-d> :pinboard<CR>
 
