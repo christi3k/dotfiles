@@ -23,6 +23,11 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+# include ghar in PATH if exists 
+if [ -d "$HOME/Config/bin" ] ; then
+    PATH="$HOME/Config/bin:$PATH"
+fi
+
 # include rbevn path if it exists
 if [ -d "$HOME/.rbenv/bin" ] ; then
     PATH="$HOME/.rbenv/bin:$PATH"
