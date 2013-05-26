@@ -1,0 +1,116 @@
+# Conkrc by Christie Koehler
+# adapted heavily from:
+#       Conkyrc by Hund @ ebupof.deviantart.com
+
+background no
+
+# use xft fonts
+use_xft yes
+xftfont DejaVu Sans Mono:size=9
+xftalpha 0.8
+
+# updated every 3 seconds forever
+update_interval 3.0
+total_run_times 0
+
+# window details
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 220 5
+maximum_width 400
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+
+# color details
+default_color lightgrey
+default_shade_color black
+
+# position
+alignment top_left
+gap_x 12
+gap_y 35
+no_buffers yes
+
+# misc
+cpu_avg_samples 2
+override_utf8_locale no
+uppercase no
+
+# shorten units to a single character
+short_units yes
+
+# now create text
+TEXT
+$stippled_hr
+$nodename - $sysname
+$kernel ($machine)
+$uptime_short uptime
+users: $user_names
+$stippled_hr
+#Kernel: $alignr $kernel
+#Uptime: $alignr $uptime
+${fs_bar 3 /}
+ROOT: $alignr ${fs_free /} / ${fs_size /}
+#HOME: $alignr ${fs_free /home/christie} / ${fs_size /home/christie}
+#${fs_bar 3 /home}
+$stippled_hr
+#SYSTEM
+#$stippled_hr
+CPU1: ${alignr} ${cpu cpu1}%
+CPU2: ${alignr} ${cpu cpu2}%
+${cpugraph 20}
+Load: $alignr $loadavg
+Processes: $alignr $processes
+Running: $alignr $running_processes
+${membar 3}
+RAM: $alignr $mem/$memmax
+${swapbar 3}
+Swap: $alignr $swap / $swapmax
+$stippled_hr
+CPU USAGE $alignr PID     CPU%   MEM%
+${color #ddaa00} ${top name 1} $alignr ${top pid 1} ${top cpu 1} ${top mem 1}$color
+ ${top name 2} $alignr ${top pid 2} ${top cpu 2} ${top mem 2}
+ ${top name 3} $alignr ${top pid 3} ${top cpu 3} ${top mem 3}
+ ${top name 4} $alignr ${top pid 4} ${top cpu 4} ${top mem 4}
+MEM USAGE$color
+${color #ddaa00} ${top_mem name 1} $alignr ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}$color
+ ${top_mem name 2} $alignr ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
+ ${top_mem name 3} $alignr ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
+ ${top_mem name 4} $alignr ${top_mem pid 4} ${top_mem cpu 4} ${top_mem mem 4}
+#$stippled_hr
+#${color #ddaa00} CPU: ${alignr}${acpitemp}C$color
+#GPU: $alignr ${execi 30 nvidia-settings -q [gpu:0]/GPUCoreTemp | grep '):' | awk '{print $4}' | sed 's/\.//'}C
+$stippled_hr
+I/O:
+ Write: $alignr $diskio_write
+#${diskiograph_write 20}
+ Read: $alignr $diskio_read
+#${diskiograph_read 20}
+#HDD1: $alignr ${fs_free /media/HDD1} / ${fs_size /media/HDD1}
+#${fs_bar 3 /media/HDD1}
+#HDD2: $alignr ${fs_free /media/HDD2} / ${fs_size /media/HDD2}
+#${fs_bar 3 /media/HDD2}
+#HDD3: $alignr ${fs_free /media/HDD3} / ${fs_size /media/HDD3}
+#${fs_bar 3 /media/HDD3}
+#HDD4: $alignr ${fs_free /media/HDD4} / ${fs_size /media/HDD4}
+#${fs_bar 3 /media/HDD4}
+#HDD5: $alignr ${fs_free /media/HDD5} / ${fs_size /media/HDD5}
+#${fs_bar 3 /media/HDD5}
+#HDD6: $alignr ${fs_free /media/HDD6} / ${fs_size /media/HDD6}
+#${fs_bar 3 /media/HDD6}
+$stippled_hr
+${color grey}NETWORK
+${color #0000FF} Down speed: $alignr ${downspeed wlan0} k/s$color
+ Down tot: $alignr ${totaldown wlan0}
+#${downspeedgraph eth0 20} ${alignr}${upspeedgraph wlan0 20}
+${color #ff0000} Up speed: $alignr ${upspeed wlan0} k/s$color
+ Up tot: $alignr ${totalup wlan0}
+#${upspeedgraph eth0 20} ${alignr}${upspeedgraph eth0 20}
+$stippled_hr
+TIME
+ UTC: $alignr $utime
