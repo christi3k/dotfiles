@@ -105,7 +105,7 @@ function prompt {
     * ) host_section="$INVERSE\h$NORMAL"
   esac
   #PS1="$WHITE\n[$host_section $WHITE\$(return_value_indicator) $BLUE\w$RED\$(parse_git_branch)$YELLOW$WHITE] \n$GREEN\u$WHITE\$ $WHITE
-  PS1="\n[$GRAY\!$WHITE][$host_section $WHITE\$(return_value_indicator) $GRAY\w$RED\$(__git_ps1)$BROWN\$(rbenv_prompt_ck)$WHITE] \n$GREEN\u$WHITE\$ $WHITE"
+  PS1="\n[$GRAY\!$WHITE][$host_section $WHITE\$(return_value_indicator) $GRAY\w$RED\$(__git_ps1)$LIGHT_PURPLE\$(rbenv_prompt_ck)$WHITE] \n$GREEN\u$WHITE\$ $WHITE"
 }
 
 # set the prompt
