@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="window_height" mtime="1361494282" type="int" value="70"/>
+	<entry name="use_login_shell" mtime="1361494297" type="bool" value="true"/>
+	<entry name="compat_delete" mtime="1361494297" type="string">
+		<stringvalue>delete-sequence</stringvalue>
+	</entry>
+	<entry name="compat_backspace" mtime="1361494297" type="string">
+		<stringvalue>ascii-delete</stringvalue>
+	</entry>
+	<entry name="use_default_font" mtime="1361494297" type="bool" value="true"/>
+	<entry name="scroll_keystroke" mtime="1361494297" type="bool" value="true"/>
+	<entry name="history_size" mtime="1361494297" type="int" value="1024"/>
+	<entry name="use_scrollbar" mtime="1361494297" type="bool" value="true"/>
+	<entry name="window_tabbar" mtime="1361494297" type="bool" value="true"/>
+	<entry name="window_losefocus" mtime="1361494303" type="bool" value="true"/>
+	<entry name="prompt_on_quit" mtime="1361494297" type="bool" value="true"/>
+	<entry name="use_popup" mtime="1361494297" type="bool" value="true"/>
+	<entry name="use_trayicon" mtime="1361494297" type="bool" value="true"/>
+</gconf>
