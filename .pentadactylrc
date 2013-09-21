@@ -7,7 +7,7 @@ map , <Leader>
 " set guioptions=bCrsBmT
 " (b)ottom scrollbar, (C) always show command outside of status, (r) right scroll, (s) status
 " (B) bookmark bar, (T) Toolbar
-set guioptions=bCrsBT
+set guioptions=bCrsT
 " set titlestring=Mozilla\ Firefox
 
 " Edit rc file
