@@ -138,3 +138,6 @@ if [ -d "$HOME/.rbenv/bin" ] ; then
     eval "$(rbenv init -)"
 fi
 
+if [ -x "/usr/bin/screenfetch-dev" ] ; then
+    /usr/bin/screenfetch-dev
+fi
