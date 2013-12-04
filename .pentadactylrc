@@ -1,9 +1,10 @@
-" Load Plugins
+"#### Load Plugins ####
+
 loadplugins '\.(js|penta)$'
 
-map , <Leader>
+"#### Misc Options ####
 
-" Misc Options
+map , <Leader>
 " set guioptions=bCrsBmT
 " (b)ottom scrollbar, (C) always show command outside of status, (r) right scroll, (s) status
 " (B) bookmark bar, (T) Toolbar
@@ -12,6 +13,8 @@ set guioptions=bCrsT
 
 " Edit rc file
 cmap <Leader>r :!gvim $HOME/.pentadactylrc"
+
+"#### Command Shortcuts ####
 
 " Google Misc 
 com docs open https://docs.google.com/
@@ -23,10 +26,13 @@ com buzilla open https://bugzilla.mozilla.org
 com zimbra open https://mail.mozilla.com/zimbra
 com mozwiki open https://wiki.mozilla.org
 com mozether open https://etherpad.mozilla.org
+com som open http://stackoverflow.com/r/mozilla
 
 " Other Apps
 com campfire open https://stumptownsyndicate.campfirenow.com
 com osbether open http://etherpad.opensourcebridge.org
+com difm open http://www.di.fm
+com zmail open https://server.zmailcloud.com/
 
 group user
 " vim: set ft=pentadactyl:
