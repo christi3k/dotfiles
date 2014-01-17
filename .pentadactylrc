@@ -33,6 +33,7 @@ com campfire open https://stumptownsyndicate.campfirenow.com
 com osbether open http://etherpad.opensourcebridge.org
 com difm open http://www.di.fm
 com zmail open https://server.zmailcloud.com/
+com gh open https://github.com/christi3k
 
 group user
 " vim: set ft=pentadactyl:
