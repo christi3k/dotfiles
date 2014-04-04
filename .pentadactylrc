@@ -49,10 +49,11 @@ autocmd LocationChange google.com :normal! <C-z>
 autocmd LocationChange etherpad.mozilla.org :normal! <C-z>
 autocmd LocationChange etherpad.samadhilabs.org :normal! <C-z>
 
-" passthrough on all google sites
+" passthrough these sites that don't play nicely with penta
 autocmd LocationChange google.com :normal! <C-z>
 autocmd LocationChange etherpad.mozilla.org :normal! <C-z>
 autocmd LocationChange etherpad.samadhilabs.org :normal! <C-z>
+autocmd LocationChange draftin.com :normal! <C-z>
 
 " setup pinboard shortcut
 nmap <C-S-d> :pinboard<CR>

@@ -1,116 +1,220 @@
-# Conkrc by Christie Koehler
-# adapted heavily from:
-#       Conkyrc by Hund @ ebupof.deviantart.com
-
-background no
-
-# use xft fonts
-use_xft yes
-xftfont DejaVu Sans Mono:size=9
-xftalpha 0.8
-
-# updated every 3 seconds forever
-update_interval 3.0
-total_run_times 0
-
-# window details
-own_window yes
-own_window_type normal
-own_window_transparent yes
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+# Conky settings #
+background yes
+update_interval 1
 double_buffer yes
-minimum_size 220 5
-maximum_width 400
-draw_shades no
-draw_outline no
-draw_borders no
-draw_graph_borders yes
-
-# color details
-default_color lightgrey
-default_shade_color black
-
-# position
-alignment top_left
-gap_x 12
-gap_y 35
 no_buffers yes
+imlib_cache_size 10
 
-# misc
-cpu_avg_samples 2
-override_utf8_locale no
-uppercase no
+# Window specifications #
+gap_x 50
+gap_y 50
+minimum_size 268 620
+maximum_width 268
+own_window yes
+own_window_type dock  # other options are: override/normal/desktop/panel
+own_window_transparent yes
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+border_inner_margin 0
+border_outer_margin 0
+#alignment middle_middle
+#own_window_argb_visual yes
+#own_window_argb_value 0
 
-# shorten units to a single character
+# Graphics settings #
+draw_shades no
+default_shade_color AAAAAA
+draw_outline no
+default_outline_color AAAAAA
+draw_borders no
+draw_graph_borders no
+default_graph_size 26 80
+show_graph_scale no
+show_graph_range no
+
+# Text settings #
+use_xft yes
+xftalpha 0
+xftfont Droid Sans:size=8
+text_buffer_size 256
+override_utf8_locale yes
+
+# Useful shortenings #
 short_units yes
+pad_percents 2
+top_name_width 7
 
-# now create text
+# Color scheme #
+default_color FFFFFF
+color1 FFFFFF
+color2 FFFFFF
+color3 FFFFFF
+color4 FFFFFF
+color5 DCDCDC
+color6 9A9A9A
+color7 FFFFFF
+color8 FFFFFF
+
 TEXT
-$stippled_hr
-$nodename - $sysname
-$kernel ($machine)
-$uptime_short uptime
-users: $user_names
-$stippled_hr
-#Kernel: $alignr $kernel
-#Uptime: $alignr $uptime
-${fs_bar 3 /}
-ROOT: $alignr ${fs_free /} / ${fs_size /}
-#HOME: $alignr ${fs_free /home/christie} / ${fs_size /home/christie}
-#${fs_bar 3 /home}
-$stippled_hr
-#SYSTEM
-#$stippled_hr
-CPU1: ${alignr} ${cpu cpu1}%
-CPU2: ${alignr} ${cpu cpu2}%
-${cpugraph 20}
-Load: $alignr $loadavg
-Processes: $alignr $processes
-Running: $alignr $running_processes
-${membar 3}
-RAM: $alignr $mem/$memmax
-${swapbar 3}
-Swap: $alignr $swap / $swapmax
-$stippled_hr
-CPU USAGE $alignr PID     CPU%   MEM%
-${color #ddaa00} ${top name 1} $alignr ${top pid 1} ${top cpu 1} ${top mem 1}$color
- ${top name 2} $alignr ${top pid 2} ${top cpu 2} ${top mem 2}
- ${top name 3} $alignr ${top pid 3} ${top cpu 3} ${top mem 3}
- ${top name 4} $alignr ${top pid 4} ${top cpu 4} ${top mem 4}
-MEM USAGE$color
-${color #ddaa00} ${top_mem name 1} $alignr ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}$color
- ${top_mem name 2} $alignr ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
- ${top_mem name 3} $alignr ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
- ${top_mem name 4} $alignr ${top_mem pid 4} ${top_mem cpu 4} ${top_mem mem 4}
-#$stippled_hr
-#${color #ddaa00} CPU: ${alignr}${acpitemp}C$color
-#GPU: $alignr ${execi 30 nvidia-settings -q [gpu:0]/GPUCoreTemp | grep '):' | awk '{print $4}' | sed 's/\.//'}C
-$stippled_hr
-I/O:
- Write: $alignr $diskio_write
-#${diskiograph_write 20}
- Read: $alignr $diskio_read
-#${diskiograph_read 20}
-#HDD1: $alignr ${fs_free /media/HDD1} / ${fs_size /media/HDD1}
-#${fs_bar 3 /media/HDD1}
-#HDD2: $alignr ${fs_free /media/HDD2} / ${fs_size /media/HDD2}
-#${fs_bar 3 /media/HDD2}
-#HDD3: $alignr ${fs_free /media/HDD3} / ${fs_size /media/HDD3}
-#${fs_bar 3 /media/HDD3}
-#HDD4: $alignr ${fs_free /media/HDD4} / ${fs_size /media/HDD4}
-#${fs_bar 3 /media/HDD4}
-#HDD5: $alignr ${fs_free /media/HDD5} / ${fs_size /media/HDD5}
-#${fs_bar 3 /media/HDD5}
-#HDD6: $alignr ${fs_free /media/HDD6} / ${fs_size /media/HDD6}
-#${fs_bar 3 /media/HDD6}
-$stippled_hr
-${color grey}NETWORK
-${color #0000FF} Down speed: $alignr ${downspeed wlan0} k/s$color
- Down tot: $alignr ${totaldown wlan0}
-#${downspeedgraph eth0 20} ${alignr}${upspeedgraph wlan0 20}
-${color #ff0000} Up speed: $alignr ${upspeed wlan0} k/s$color
- Up tot: $alignr ${totalup wlan0}
-#${upspeedgraph eth0 20} ${alignr}${upspeedgraph eth0 20}
-$stippled_hr
-TIME
- UTC: $alignr $utime
+# Various images #
+${execi 300 curl -s "http://weather.yahooapis.com/forecastrss?w=2475687&u=f" -o ~/.cache/weather.xml}
+${image ~/.conky-weather/assets/Transparent/God-Mode/separator-v.png -p 95,185 -s 1x76}\
+${image ~/.conky-weather/assets/Transparent/God-Mode/separator-v.png -p 172,185 -s 1x76}\
+${image ~/.conky-weather/assets/Transparent/God-Mode/separator-h.png -p 33,93 -s 202x1}\
+${image ~/.conky-weather/assets/Transparent/God-Mode/separator-h.png -p 33,176 -s 202x1}\
+${image ~/.conky-weather/assets/Transparent/God-Mode/separator-h.png -p 33,269 -s 202x1}\
+#${image ~/.conky-weather/assets/Transparent/God-Mode/separator-h.png -p 33,388 -s 202x1}\
+${image ~/.conky-weather/assets/Transparent/God-Mode/separator-h.png -p 33,474 -s 202x1}\
+\
+# The days of the forecast #
+\
+${color3}${voffset 172}${alignc 77}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1' | tr '[a-z]' '[A-Z]'}${color}
+${color3}${voffset -13}${alignc}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2' | tr '[a-z]' '[A-Z]'}${color}
+${color3}${voffset -13}${alignc -77}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3' | tr '[a-z]' '[A-Z]'}${color}
+\
+# The temperatures of the forecast #
+\
+${color2}${voffset 51}${alignc 77}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1'}°/${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1'}°${color}
+${color2}${voffset -13}${alignc}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2'}°/${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2'}°${color}
+${color2}${voffset -13}${alignc -77}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3'}°/${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3'}°${color}
+\
+# The "conditions" section of the conky #
+\
+${goto 46}${voffset -162}${font Droid Sans :size=30}${color1}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°${font}${color}
+${goto 46}${voffset 10}${font Droid Sans :size=10}${color1}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${font}${color}
+${color1}${alignr 62}${voffset -60}${execi 300 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "pressure=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} ${execi 300 grep "yweather:units" ~/.cache/weather.xml | grep -o "pressure=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
+${color1}${alignr 62}${voffset 7}${execi 300 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "humidity=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} %${color}
+${color1}${alignr 62}${voffset 7}${execi 300 grep "yweather:wind" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} ${execi 300 grep "yweather:units" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${color}
+\
+# Clock + calendar #
+\
+${voffset -130}${font Droid Sans Mono :size=24}${alignc}${color2}${time %H:%M}${font}${color}
+${voffset 4}${font Droid Sans :size=12}${alignc}${color6}${time %a, %d %b}${font}${color}
+\
+# Cpu, memory, swap info and load graph #
+\
+${voffset 190}${font Droid Sans Mono :size=10}${goto 40}${color6}SYSTEM${font}${color1}
+${voffset 6}${goto 40}${color2}Hostname:${color}
+${voffset 4}${goto 40}${color2}Kernel:${color}
+${voffset 4}${goto 40}${color2}Ubuntu:${color}
+${voffset -47}${alignr 39}${color2}${nodename}${color}
+${voffset 4}${alignr 39}${color2}${kernel}${color}
+${voffset 4}${alignr 39}${color2}${pre_exec lsb_release -r | cut -f 2| tr "[:upper:]" "[:lower:]"}${color}
+\
+${voffset 14}${goto 40}${color2}Disk Usage:${color}
+${voffset 4}${goto 40}${color2}Disk Free:${color}
+${voffset -30}${alignr 39}${color2}${fs_used /} / ${fs_size /}${color}
+${voffset 4}${alignr 39}${color2}${fs_free_perc /}%${color}
+${voffset -30}${alignc}${color2}${fs_bar 5,36 /}${color}
+${voffset 4}${alignc}${color2}${fs_bar_free 5,36 /}${color}
+\
+${voffset 14}${goto 40}${color2}Uptime:${color1}
+${voffset 4}${goto 40}${color2}Processes:${color1}
+${voffset -30}${alignr 39}${color2}${uptime_short}${color}
+${voffset 4}${alignr 39}${color2}${running_processes} of ${processes}${color}
+\
+${voffset 14}${goto 40}${color2}Cpu:${color}
+${voffset 4}${goto 40}${color2}Mem:${color}
+${voffset 4}${goto 40}${color2}Swap:${color}
+${voffset -47}${alignr 39}${color2}${cpu cpu0}%${color}
+${voffset 4}${alignr 39}${color2}${memperc}%${color}
+${voffset 4}${alignr 39}${color2}${swapperc}%${color}
+${voffset -47}${alignc}${color2}${cpubar 5,36}${color}
+${voffset 4}${alignc}${color2}${membar 5,36}${color}
+${voffset 4}${alignc}${color2}${swapbar 5,36}${color}
+${voffset 4}${goto 40}${loadgraph 26,190 FFFFFF FFFFFF -l}
+\
+# The processes section #
+\
+${voffset 26}${goto 40}${color2}${top_mem name 1}${color}
+${voffset 4}${goto 40}${color2}${top_mem name 2}${color}
+${voffset 4}${goto 40}${color2}${top_mem name 3}${color}
+${voffset 4}${goto 40}${color2}${top_mem name 4}${color}
+${voffset 4}${goto 40}${color2}${top_mem name 5}${color}
+${voffset -81}${alignc}${color5}${top_mem mem 1}%${color}
+${voffset 4}${alignc}${color5}${top_mem mem 2}%${color}
+${voffset 4}${alignc}${color5}${top_mem mem 3}%${color}
+${voffset 4}${alignc}${color5}${top_mem mem 4}%${color}
+${voffset 4}${alignc}${color5}${top_mem mem 5}%${color}
+${voffset -81}${alignr 39}${color6}${top_mem mem_res 1}${color}
+${voffset 4}${alignr 39}${color6}${top_mem mem_res 2}${color}
+${voffset 4}${alignr 39}${color6}${top_mem mem_res 3}${color}
+${voffset 4}${alignr 39}${color6}${top_mem mem_res 4}${color}
+${voffset 4}${alignr 39}${color6}${top_mem mem_res 5}${color}
+${voffset -104}${goto 40}${color1}Proc${color}
+${voffset -13}${alignc}${color1}Mem%${color}
+${voffset -13}${alignr 39}${color1}Mem${color}
+\
+# The network section #
+#\
+#${if_existing /proc/net/route ppp0}
+#${voffset -227}${goto 40}${color5}Up: ${color2}${upspeed ppp0}${color5}${goto 150}Down: ${color2}${downspeed ppp0}
+#${voffset 10}${goto 40}${upspeedgraph ppp0 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph ppp0 26,80 FFFFFF FFFFFF}
+#${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup ppp0}${color5}${goto 150}Received: ${color2}${totaldown ppp0}
+#${else}
+#${if_existing /proc/net/route ppp1}
+#${voffset -240}${goto 40}${color5}Up: ${color2}${upspeed ppp1}${color5}${goto 150}Down: ${color2}${downspeed ppp1}
+#${voffset 10}${goto 40}${upspeedgraph ppp1 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph ppp1 26,80 FFFFFF FFFFFF}
+#${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup ppp1}${color5}${goto 150}Received: ${color2}${totaldown ppp1}
+#${else}
+#${if_existing /proc/net/route wlp2s1}
+#${voffset -253}${goto 40}${color5}Up: ${color2}${upspeed wlp2s1}${color5}${goto 150}Down: ${color2}${downspeed wlp2s1}
+#${voffset 10}${goto 40}${upspeedgraph wlp2s1 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph wlp2s1 26,80 FFFFFF FFFFFF}
+#${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup wlp2s1}${color5}${goto 150}Received: ${color2}${totaldown wlp2s1}
+#${else}
+#${if_existing /proc/net/route wlp2s0}
+#${voffset -266}${goto 40}${color5}Up: ${color2}${upspeed wlp2s0}${color5}${goto 150}Down: ${color2}${downspeed wlp2s0}
+#${voffset 10}${goto 40}${upspeedgraph wlp2s0 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph wlp2s0 26,80 FFFFFF FFFFFF}
+#${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup wlp2s0}${color5}${goto 150}Received: ${color2}${totaldown wlp2s0}
+#${else}
+#${if_existing /proc/net/route wlan0}
+#${voffset -279}${goto 40}${color5}Up: ${color2}${upspeed wlan0}${color5}${goto 150}Down: ${color2}${downspeed wlan0}
+#${voffset 8}${goto 40}${upspeedgraph wlan0 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph wlan0 26,80 FFFFFF FFFFFF}
+#${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup wlan0}${color5}${goto 150}Received: ${color2}${totaldown wlan0}
+#${else}
+#${if_existing /proc/net/route wlan1}
+#${voffset -292}${goto 40}${color5}Up: ${color2}${upspeed wlan1}${color5}${goto 150}Down: ${color2}${downspeed wlan1}
+#${voffset 10}${goto 40}${upspeedgraph wlan1 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph wlan1 26,80 FFFFFF FFFFFF}
+#${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup wlan1}${color5}${goto 150}Received: ${color2}${totaldown wlan1}
+#${else}
+#${if_existing /proc/net/route wlan2}
+#${voffset -292}${goto 40}${color5}Up: ${color2}${upspeed wlan1}${color5}${goto 150}Down: ${color2}${downspeed wlan1}
+#${voffset 10}${goto 40}${upspeedgraph wlan1 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph wlan1 26,80 FFFFFF FFFFFF}
+#${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup wlan1}${color5}${goto 150}Received: ${color2}${totaldown wlan1}
+#${else}
+#${if_existing /proc/net/route eth2}
+#${voffset -305}${goto 40}${color5}Up: ${color2}${upspeed eth1}${color5}${goto 150}Down: ${color2}${downspeed eth1}
+#${voffset 10}${goto 40}${upspeedgraph eth1 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph eth1 26,80 FFFFFF FFFFFF}
+#${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup eth1}${color5}${goto 150}Received: ${color2}${totaldown eth1}
+#${else}
+#${if_existing /proc/net/route eth1}
+#${voffset -305}${goto 40}${color5}Up: ${color2}${upspeed eth1}${color5}${goto 150}Down: ${color2}${downspeed eth1}
+#${voffset 10}${goto 40}${upspeedgraph eth1 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph eth1 26,80 FFFFFF FFFFFF}
+#${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup eth1}${color5}${goto 150}Received: ${color2}${totaldown eth1}
+#${else}
+#${if_existing /proc/net/route eth0}
+#${voffset -318}${goto 40}${color5}Up: ${color2}${upspeed eth0}${color5}${goto 150}Down: ${color2}${downspeed eth0}
+#${voffset 10}${goto 40}${upspeedgraph eth0 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph eth0 26,80 FFFFFF FFFFFF}
+#${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup eth0}${color5}${goto 150}Received: ${color2}${totaldown eth0}
+#${else}
+#${if_existing /proc/net/route enp0s0}
+#${voffset -331}${goto 40}${color5}Up: ${color2}${upspeed enp0s0}${color5}${goto 150}Down: ${color2}${downspeed enp0s0}
+#${voffset 10}${goto 40}${upspeedgraph enp0s0 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph enp0s0 26,80 FFFFFF FFFFFF}
+#${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup enp0s0}${color5}${goto 150}Received: ${color2}${totaldown enp0s0}
+#${else}
+#${if_existing /proc/net/route enp0s1}
+#${voffset -344}${goto 40}${color5}Up: ${color2}${upspeed enp0s1}${color5}${goto 150}Down: ${color2}${downspeed enp0s1}
+#${voffset 10}${goto 40}${upspeedgraph enp0s1 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph enp0s1 26,80 FFFFFF FFFFFF}
+#${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup enp0s1}${color5}${goto 150}Received: ${color2}${totaldown enp0s1}
+#${else}
+#${voffset -311}${goto 40}${color5}Network disconnected${color}
+#${image ~/.conky-weather/assets/Transparent/God-Mode/offline.png -p 44,284 -s 16x16}
+#${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}
+#\
+# Various images including the icons of the forecast #
+\
+${image ~/.conky-weather/assets/Transparent/God-Mode/pressure.png -p 210,105 -s 16x16}\
+${image ~/.conky-weather/assets/Transparent/God-Mode/humidity.png -p 210,125 -s 16x16}\
+${image ~/.conky-weather/assets/Transparent/God-Mode/wind-2.png -p 210,146 -s 16x16}\
+${execi 300 cp -f ~/.conky-weather/icons/weather-icons-light3/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1').png ~/.cache/weather-1.png}${image ~/.cache/weather-1.png -p 41,207 -s 32x32}\
+${execi 300 cp -f ~/.conky-weather/icons/weather-icons-light3/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2').png ~/.cache/weather-2.png}${image ~/.cache/weather-2.png -p 119,207 -s 32x32}\
+${execi 300 cp -f ~/.conky-weather/icons/weather-icons-light3/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3').png ~/.cache/weather-3.png}${image ~/.cache/weather-3.png -p 195,207 -s 32x32}${font}\
