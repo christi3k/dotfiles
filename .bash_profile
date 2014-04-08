@@ -105,6 +105,7 @@ function prompt {
     starbuck) host_section="$PURPLE\h";;
     ripley) host_section="$LIGHT_PURPLE\h";;
     scully) host_section="$LIGHT_BLUE\h";;
+    skade) host_section="$BLUE\h";;
     buffy ) host_section="$GREEN$INVERSE\h$NORMAL";;
     xander ) host_section="$BLUE$INVERSE\h$NORMAL";;
     * ) host_section="$INVERSE\h$NORMAL"
