@@ -92,7 +92,14 @@ fi
 # misc aliases (todo move to aprop aliases file)
 alias pwgen='pwgen -y -1 12 10'
 
-alias apg='apg -M SNCl -a 0 -n 12 -m 12 -x 12 -E \(\)~-/_'
+# mode -M SNCl (must use symbol, numeric, capital, should use small letter)
+# algorithm -a 0 (pronounceable)
+# -n number of pw to gen
+# -m min length
+# -x max length
+# -E exclude these chars
+# -t include pronunciation
+alias apg='apg -t -M SNCL -a 0 -n 12 -m 8 -x 20 -E \(\)~-/,\'
 
 # better disk usage output
 alias du='du -chs'

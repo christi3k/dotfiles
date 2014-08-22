@@ -23,6 +23,11 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+# set PATH so it includes user's ~/Scripts if it exists
+if [ -d "$HOME/Scripts" ] ; then
+    PATH="$HOME/Scripts:$PATH"
+fi
+
 # include ghar in PATH if exists 
 if [ -d "$HOME/Config/bin" ] ; then
     PATH="$HOME/Config/bin:$PATH"
@@ -108,6 +113,8 @@ function prompt {
     skade) host_section="$BLUE\h";;
     buffy ) host_section="$GREEN$INVERSE\h$NORMAL";;
     xander ) host_section="$BLUE$INVERSE\h$NORMAL";;
+    giles ) host_section="$PURPLEINVERSE\h$NORMAL";;
+    caleb ) host_section="$YELLOW$INVERSE\h$NORMAL";;
     * ) host_section="$INVERSE\h$NORMAL"
   esac
   #PS1="$WHITE\n[$host_section $WHITE\$(return_value_indicator) $BLUE\w$RED\$(parse_git_branch)$YELLOW$WHITE] \n$GREEN\u$WHITE\$ $WHITE
