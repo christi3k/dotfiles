@@ -4,6 +4,9 @@ loadplugins '\.(js|penta)$'
 
 "#### Misc Options ####
 
+" set ddg as default search engine
+set defsearch=ddg
+
 map , <Leader>
 " set guioptions=bCrsBmT
 " (b)ottom scrollbar, (C) always show command outside of status, (r) right scroll, (s) status
