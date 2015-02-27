@@ -1,11 +1,16 @@
 "#### Load Plugins ####
 
-loadplugins '\.(js|penta)$'
+" loadplugins '\.(js|penta)$'
 
 "#### Misc Options ####
 
+" set hinttags
+set hinttags+=a
+
 " set ddg as default search engine
 set defsearch=ddg
+
+set! browser.tabs.closeWindowWithLastTab=false
 
 map , <Leader>
 " set guioptions=bCrsBmT
@@ -16,6 +21,23 @@ set guioptions=bCrsT
 
 " Edit rc file
 cmap <Leader>r :!gvim $HOME/.pentadactylrc"
+
+"#### Quickmarks ####
+qmark a https://amazon.com
+qmark b https://bugzilla.mozilla.org
+qmark B https://subfictional.com
+qmark D https://discourse.mozilla-community.org
+qmark d https://wiki-dev.allizom.org
+qmark g https://github.com/
+qmark G https://github.com/issues/assigned
+qmark l https://mozillawiki.local
+qmark s https://wiki.allizom.org
+qmark S http://www.standu.ps/
+qmark t https://twitter.com
+qmark w https://wiki.mozilla.org
+qmark y https://www.yammer.com/mozilla.com
+qmark z https://mail.mozilla.com/zimbra/
+qmark Z https://server.zmailcloud.com
 
 "#### Command Shortcuts ####
 

@@ -75,7 +75,13 @@ HAPPY=$'\u263a'
 	#source /usr/share/stgit/completion/stgit-completion.bash
 #fi
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+
+# git prompt options
 GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM="auto"
+
 
 function parse_git_branch {
   if [ $(which git-symbolic-ref) ]; then

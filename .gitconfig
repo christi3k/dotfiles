@@ -1,12 +1,12 @@
 [user]
 	name = Christie Koehler
-	email = christiekoehler@gmail.com
+	email = ck@christi3k.net
 [color]
 	diff = auto
 	status = auto
 	branch = auto
 [github]
-	user = christiekoehler
+	user = christi3k
     token = !sh -c 'echo $GITHUB_TOKEN'
 [alias]
     hist = log --all --graph --oneline --decorate
